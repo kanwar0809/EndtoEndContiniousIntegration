@@ -34,7 +34,7 @@ public class monitoringMail
 		
 	     props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");   
 	     props.setProperty("mail.smtp.socketFactory.fallback", "false");   
-	     props.setProperty("mail.smtp.port", "587");   
+	     props.setProperty("mail.smtp.port", "465");   
 	     props.setProperty("mail.smtp.socketFactory.port", "465"); 
 	     //465
 		
@@ -74,7 +74,7 @@ public class monitoringMail
              MimeMultipart multipart = new MimeMultipart();
              multipart.addBodyPart(body);
              //multipart.addBodyPart(attachment);
-             //message.setContent(multipart);
+             message.setContent(multipart);
              Transport.send(message);
              System.out.println("Sucessfully Sent mail to All Users");
          	 bus.close();
