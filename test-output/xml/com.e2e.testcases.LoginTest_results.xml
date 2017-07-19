@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login Test"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="10.552">
+  <properties />
+  
+            <testcase name="logintest" time="0.0" classname="com.e2e.testcases.LoginTest">
+          <skipped />
+    </testcase>
+  
+            <testcase name="logintest" time="10.543" classname="com.e2e.testcases.LoginTest" />
+      
+</testsuite>
