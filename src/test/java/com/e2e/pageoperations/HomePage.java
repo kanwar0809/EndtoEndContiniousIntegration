@@ -4,7 +4,7 @@ import org.testng.Reporter;
 
 import com.e2e.core.TestBase;
 
-import pageObjects.HomepageObjects;
+import com.e2e.pageObjects.HomepageObjects;
 
 public class HomePage extends TestBase{
 	
