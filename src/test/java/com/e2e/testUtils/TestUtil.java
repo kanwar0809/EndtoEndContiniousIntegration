@@ -84,7 +84,21 @@ public class TestUtil extends TestBase {
 		for (int rowNum = 2; rowNum <= excel.getRowCount("test_suite"); rowNum++) {
 			if (excel.getCellData("test_suite", "TCID", rowNum).equals(tcid)) {
 				if (excel.getCellData("test_suite", "runmode", rowNum).equalsIgnoreCase("Y")) {
-					return true;
+					if(excel.getCellData("test_suite", "TestingType", rowNum).equalsIgnoreCase("Web") && (Config.getProperty("Web").equalsIgnoreCase("Yes"))){
+						System.out.println("Web is yes");
+						return true;
+					}else if(excel.getCellData("test_suite", "TestingType", rowNum).equalsIgnoreCase("Mobile") && (Config.getProperty("Android").equalsIgnoreCase("Yes"))){
+						System.out.println("Web is yes");
+						return true;
+						
+					}else if(excel.getCellData("test_suite", "TestingType", rowNum).equalsIgnoreCase("Database") && (Config.getProperty("Database").equalsIgnoreCase("Yes"))){
+						System.out.println("Web is yes");
+						return true;
+						
+					}else{
+						System.out.println("Web/database/mobile is No");
+						return false;
+					}
 				} else {
 					return false;
 				}
@@ -189,9 +203,9 @@ public class TestUtil extends TestBase {
 	public static WebDriver SelectDriver(String BrowserName, String tcid, String Iteration)
 			throws MalformedURLException {
 		if (BrowserName.trim().equalsIgnoreCase("firefox")) {
-			// System.out.println("Start Firefox Driver");
-			// System.setProperty("webdriver.gecko.driver",
-			// driverPath+"geckodriver.exe");
+			System.out.println("Start Firefox Driver");
+			System.setProperty("webdriver.gecko.driver",
+					System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\geckodriver.exe");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			driver = new FirefoxDriver(capabilities);

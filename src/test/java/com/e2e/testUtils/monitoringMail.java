@@ -1,4 +1,6 @@
 package com.e2e.testUtils;
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -21,7 +23,7 @@ import javax.mail.internet.MimeMultipart;
 public class monitoringMail
 {
 	//public static void sendMail(String mailServer, String from,String username, String password,String port, String[] to, String subject, String messageBody, String attachmentPath, String attachmentName) throws MessagingException, AddressException
-	public void sendMail(String mailServer, String from, String[] to, String subject, String messageBody) throws MessagingException, AddressException
+	public void sendMail(String mailServer, String from, String[] to, String subject, String messageBody) throws MessagingException, AddressException, UnknownHostException
 	{
 		boolean debug = false;
 		Properties props = new Properties();
@@ -64,16 +66,17 @@ public class monitoringMail
              
              BodyPart body = new MimeBodyPart();
 
-            // body.setText(messageBody);
+            body.setText(messageBody);
             body.setContent(messageBody,"text/html");
-
+            String attachmentPath = "http://"+Inet4Address.getLocalHost().getHostAddress()+":8080/job/E2E_GitHub_Integration/ws/target/surefire-reports/html/extent.html";
              BodyPart attachment = new MimeBodyPart();
-             //DataSource source = new FileDataSource(attachmentPath);
-             //attachment.setDataHandler(new DataHandler(source));
-             //attachment.setFileName(attachmentName);
+             String attachmentName = "Test";
+             DataSource source = new FileDataSource(attachmentPath);
+             attachment.setDataHandler(new DataHandler(source));
+             attachment.setFileName(attachmentName);
              MimeMultipart multipart = new MimeMultipart();
              multipart.addBodyPart(body);
-             //multipart.addBodyPart(attachment);
+             multipart.addBodyPart(attachment);
              message.setContent(multipart);
              Transport.send(message);
              System.out.println("Sucessfully Sent mail to All Users");

@@ -45,9 +45,11 @@ public class roughwork {
 		//String Tcase = "Login Test";
 		String Hyperlink = "http://"+Inet4Address.getLocalHost().getHostAddress()+":8080/job/E2E_POM_Jenkin_Execution/Extent_Report/";
 		System.out.println(Hyperlink);	
+		//System.out.println(build.getWorkspace());
 		System.out.println(InetAddress.getLocalHost().getHostAddress());
-		String messgaeBody = Hyperlink;
+		//String messgaeBody = Hyperlink;
 		//excel.addHyperLink("test_suite", "Result", "LoginTest", 1, Hyperlink, "Hello");
-		mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messgaeBody);
+		//mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messgaeBody);
+		
 	}
 }

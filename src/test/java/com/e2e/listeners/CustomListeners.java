@@ -20,7 +20,8 @@ import org.testng.SkipException;
 import com.e2e.core.TestBase;
 import com.relevantcodes.extentreports.LogStatus;
 import com.e2e.testUtils.*;
-import com.mysql.cj.jdbc.UpdatableResultSet;
+import com.mysql.cj.api.jdbc.result.*;
+//import com.mysql.cj.jdbc.UpdatableResultSet;
 
 
 public class CustomListeners extends TestBase implements ITestListener,ISuiteListener {

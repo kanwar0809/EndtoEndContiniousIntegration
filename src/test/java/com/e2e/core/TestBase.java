@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -122,6 +123,12 @@ public class TestBase {
 				System.out.println("initialize Chrome driver");
 				driver = new ChromeDriver();
 				System.out.println("initialize Chrome driver1");
+			}else if(Config.getProperty("browser").equalsIgnoreCase("firefox")) {
+				System.out.println("initialize Firefox driver1");
+				System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\geckodriver.exe");
+				System.out.println("initialize Firefox driver");
+				driver = new FirefoxDriver();
+				System.out.println("initialize Firefox driver1");
 			}else if(Config.getProperty("browser").equalsIgnoreCase("Android")){
 				  System.out.println("Yes");
 				  DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -144,8 +151,10 @@ public class TestBase {
 			  }
 			
 			//driver.get(Config.getProperty("testsiteurl"));
+			System.out.println("I m here");
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")), TimeUnit.SECONDS);
+			
+			//driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")), TimeUnit.SECONDS);
 			wait = new WebDriverWait(driver,5);
 		}else{
 			System.out.println("No Browser initialized in config file");
