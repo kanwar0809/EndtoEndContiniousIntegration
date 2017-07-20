@@ -87,8 +87,8 @@ public class AddCustomer extends TestBase {
 		System.out.println("data"+" "+testdata.get("fName"));
 		driver.findElement(By.xpath("//input[@ng-model='fName']")).click();
 		driver.findElement(By.xpath("//input[@ng-model='fName']")).clear();
-		driver.findElement(By.xpath("//input[@ng-model='fName']")).sendKeys("Kanwar");
-		//driver.findElement(By.xpath("//input[@ng-model='fName']")).sendKeys(testdata.get("fName")+TestUtil.generateTimeStamp());
+		//driver.findElement(By.xpath("//input[@ng-model='fName']")).sendKeys("Kanwar");
+		driver.findElement(By.xpath("//input[@ng-model='fName']")).sendKeys(testdata.get("fName")+TestUtil.generateTimeStamp());
 		driver.findElement(By.xpath("//input[@ng-model='lName']")).sendKeys(testdata.get("lName"));
 		driver.findElement(By.xpath("//input[@ng-model='postCd']")).sendKeys(testdata.get("postcode"));
 		TestUtil.CaptureScreenshot();
