@@ -8,7 +8,8 @@ public class HomepageObjects {
 	 private static WebElement element = null;
 	 
 	 public static WebElement btn_BML(WebDriver driver){
-	        element = driver.findElement(By.cssSelector("div > div:nth-child(3) > .btn.btn-primary.btn-lg"));
+	        //element = driver.findElement(By.cssSelector("div > div:nth-child(3) > .btn.btn-primary.btn-lg"));
+	        element = driver.findElement(By.xpath("//button[@ng-click='manager()']"));
 	         return element;
 	 }
 	 

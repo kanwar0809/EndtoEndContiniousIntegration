@@ -15,4 +15,11 @@
 	 </classes>
     </test> <!-- Test -->
     
+  	<test name="Add Customer">
+     <classes>
+	     <class name="com.e2e.testcases.AddCustomer">
+		 </class>
+	 </classes>
+    </test> <!-- Test -->
+    
 </suite> <!-- Suite -->

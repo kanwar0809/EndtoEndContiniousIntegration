@@ -76,7 +76,7 @@ public class CustomListeners extends TestBase implements ITestListener,ISuiteLis
 
 	public void onTestSkipped(ITestResult arg0) {
 		
-
+		//test.log(LogStatus.SKIP, "Skipped");
 		test.log(LogStatus.SKIP, CurrentTestName.toUpperCase()+" Skipped the test as the Run mode is NO");
 		rep.endTest(test);
 		rep.flush();

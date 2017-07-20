@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.e2e.testcases.LoginTest">
+      <class name="com.e2e.testcases.AddCustomer">
         <methods>
+          <include name="addNewCustomer" invocation-numbers="0 1"/>
           <include name="QuitDriver"/>
-          <include name="logintest" invocation-numbers="0 1"/>
           <include name="closebrowser"/>
           <include name="isSkip"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.e2e.testcases.LoginTest -->
+      </class> <!-- com.e2e.testcases.AddCustomer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Reporter;
 import org.testng.SkipException;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -57,29 +58,32 @@ public class LoginTest extends TestBase {
 						+ " is " + testdata.get("Browser"));
 				driver.get(testdata.get("URL"));
 				driver.manage().window().maximize();
-				driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")),
-						TimeUnit.SECONDS);
+				//driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")),
+						//TimeUnit.SECONDS);
 				TestUtil.CaptureScreenshot();
 			} else {
 				System.out.println("no for Iteration: " + testdata.get("Iteration"));
 				driver.get(testdata.get("URL"));
-				driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")),
-						TimeUnit.SECONDS);
+				//driver.manage().timeouts().implicitlyWait(Integer.parseInt(Config.getProperty("implicitwait")),
+					//	TimeUnit.SECONDS);
 				TestUtil.CaptureScreenshot();
 			}
 		} else {
 			throw new SkipException("Skipping Test case Iteration as runmode is set to No");
 		}
-
+		Thread.sleep(3000);
 		//app_logs.debug("Execution started for Login Test Case Iteration: " + testdata.get("Iteration"));
 		//app_logs.debug("Step1 : click Manager Button");
+		System.out.println("Before click");
 		hp.clickManagerLink();
+		System.out.println("clicked");
 		Thread.sleep(3000);
 		//app_logs.debug("Execution finished for Login Test Case");
 		TestUtil.CaptureScreenshot();
 		test.log(LogStatus.PASS, test.addScreenCapture(TestUtil.screenshotName));
 		test.log(LogStatus.PASS, "Manage Home page is displayed successfuly");
 		Reporter.log("Execution finished for Login Test Case");
+		tearDown();
 	}
 
 	@DataProvider
@@ -87,19 +91,26 @@ public class LoginTest extends TestBase {
 		System.out.println("Name is data source is " + CurrentTestName);
 		return TestUtil.getTestData(CurrentTestName);
 	}
-
-	@AfterTest
-	public void closebrowser() {
-		if (Config.getProperty("browser").trim().equals("")) {
+	
+	public void tearDown(){
+		System.out.println("I am in tearDown Test");
+		if (Config.getProperty("browser").equals("") && (driver!=null)) {
 			// driver.quit();
 			driver.close();
-			driver = null;
+			driver.quit();
+			driver=null;  
 			System.out.println("Closing Browser from Login test");
 			// String url = "file:///D:\\Selenium
 			// Practise\\E2E_DataDriven_Framework\\test-output\\E2E Data Driven
 			// Suite\\Add Customer Test.html";
 			// excel.setCellData("test_suite", "ReportLink", 2, "click");
-			System.out.println("I am in After Test");
+			System.out.println("I am in After tearDown");
+		}
+	}
+
+	@AfterTest
+	public void closebrowser() {
+		System.out.println("I m in After Test");
 			try {
 				testutil.UpdateExecutionResult(CurrentTestName);
 			} catch (MalformedURLException e) {
@@ -107,5 +118,5 @@ public class LoginTest extends TestBase {
 				e.printStackTrace();
 			}
 		}
-	}
+	
 }

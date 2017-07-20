@@ -6,17 +6,12 @@
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     <listener class-name="com.e2e.listeners.CustomListeners"/>
   </listeners>
-  <test name="Login Test">
-    <classes>
-      <class name="com.e2e.testcases.LoginTest"/>
-    </classes>
-  </test> <!-- Login Test -->
   <test name="Login Test(failed)">
     <classes>
       <class name="com.e2e.testcases.LoginTest">
         <methods>
           <include name="QuitDriver"/>
-          <include name="logintest" invocation-numbers="0"/>
+          <include name="logintest"/>
           <include name="closebrowser"/>
           <include name="isSkip"/>
           <include name="setUp"/>

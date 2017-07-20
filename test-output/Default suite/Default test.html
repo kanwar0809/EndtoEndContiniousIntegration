@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jul 19 19:54:25 IST 2017</td>
+<td>Started on:</td><td>Thu Jul 20 06:46:54 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>8 seconds (8734 ms)</td>
+<tr><td>Total time:</td><td>22 seconds (22533 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,13 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.e2e.testcases.LoginTest.logintest()'><b>logintest</b><br>Test class: com.e2e.testcases.LoginTest<br>Parameters: {URL=https://goo.gl/lLPl53, RunMode=Y, TestData=login2, Iteration=2.0, Browser=Chrome}, public void com.e2e.testcases.LoginTest.logintest(java.util.Hashtable,java.lang.reflect.Method) throws java.io.IOException,java.lang.InterruptedException</td>
-<td><div><pre>org.openqa.selenium.InvalidArgumentException: Missing &apos;type&apos; parameter
+<td title='com.e2e.testcases.AddCustomer.addNewCustomer()'><b>addNewCustomer</b><br>Test class: com.e2e.testcases.AddCustomer<br>Parameters: {URL=http://www.way2automation.com/angularjs-protractor/banking/#/login, RunMode=Y, postcode=E130RL, TestData=login1, Iteration=1.0, fName=Kanwar, lName=Singh, Browser=Firefox}, public void com.e2e.testcases.AddCustomer.addNewCustomer(java.util.Hashtable,java.lang.reflect.Method) throws java.lang.InterruptedException,java.io.IOException</td>
+<td><div><pre>org.openqa.selenium.InvalidArgumentException: Expected [object Undefined] undefined to be a string
 Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.86.225&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
+System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.98.228&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.ENOLeeDUSVRq, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=8064.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
+Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.Co5VWaConyRd, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=12432.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 024b6229-a0df-40c8-9c82-1592a234556a
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -92,8 +92,9 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:868)
-	at com.e2e.testcases.LoginTest.logintest(LoginTest.java:66)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:272)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+	at com.e2e.testcases.AddCustomer.addNewCustomer(AddCustomer.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -120,12 +121,12 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 </pre></div><a href='#' onClick='toggleBox("stack-trace617928649", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace617928649'><pre>org.openqa.selenium.InvalidArgumentException: Missing &apos;type&apos; parameter
+<div class='stack-trace' id='stack-trace617928649'><pre>org.openqa.selenium.InvalidArgumentException: Expected [object Undefined] undefined to be a string
 Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.86.225&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
+System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.98.228&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.ENOLeeDUSVRq, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=8064.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
+Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.Co5VWaConyRd, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=12432.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 024b6229-a0df-40c8-9c82-1592a234556a
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -136,8 +137,9 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:868)
-	at com.e2e.testcases.LoginTest.logintest(LoginTest.java:66)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:272)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+	at com.e2e.testcases.AddCustomer.addNewCustomer(AddCustomer.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -164,20 +166,29 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 </pre></div></td>
-<td>8</td>
-<td>com.e2e.testcases.LoginTest@6fdbe764</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
+<td>12</td>
+<td>com.e2e.testcases.AddCustomer@21282ed8</td></tr>
 <tr>
-<td title='com.e2e.testcases.LoginTest.logintest()'><b>logintest</b><br>Test class: com.e2e.testcases.LoginTest<br>Parameters: {URL=http://www.way2automation.com/angularjs-protractor/banking/#/login, RunMode=N, TestData=login1, Iteration=1.0, Browser=Firefox}, public void com.e2e.testcases.LoginTest.logintest(java.util.Hashtable,java.lang.reflect.Method) throws java.io.IOException,java.lang.InterruptedException</td>
-<td><div><pre>org.testng.SkipException: Skipping Test case Iteration as runmode is set to No
-	at com.e2e.testcases.LoginTest.logintest(LoginTest.java:71)
+<td title='com.e2e.testcases.AddCustomer.addNewCustomer()'><b>addNewCustomer</b><br>Test class: com.e2e.testcases.AddCustomer<br>Parameters: {URL=http://www.way2automation.com/angularjs-protractor/banking/#/login, RunMode=Y, postcode=E130RL, TestData=login2, Iteration=2.0, fName=Kanwar, lName=Singh, Browser=Chrome}, public void com.e2e.testcases.AddCustomer.addNewCustomer(java.util.Hashtable,java.lang.reflect.Method) throws java.lang.InterruptedException,java.io.IOException</td>
+<td><div><pre>org.openqa.selenium.InvalidArgumentException: Expected [object Undefined] undefined to be a string
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.98.228&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.Co5VWaConyRd, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=12432.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 024b6229-a0df-40c8-9c82-1592a234556a
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:272)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+	at com.e2e.testcases.AddCustomer.addNewCustomer(AddCustomer.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -203,9 +214,26 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-</pre></div><a href='#' onClick='toggleBox("stack-trace606775513", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace606775513'><pre>org.testng.SkipException: Skipping Test case Iteration as runmode is set to No
-	at com.e2e.testcases.LoginTest.logintest(LoginTest.java:71)
+</pre></div><a href='#' onClick='toggleBox("stack-trace371397455", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace371397455'><pre>org.openqa.selenium.InvalidArgumentException: Expected [object Undefined] undefined to be a string
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;CHDSEZ143238L&apos;, ip: &apos;10.110.98.228&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\kanwarpreet_k\AppData\Local\Temp\rust_mozprofile.Co5VWaConyRd, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=6.1, moz:processID=12432.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 024b6229-a0df-40c8-9c82-1592a234556a
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:272)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+	at com.e2e.testcases.AddCustomer.addNewCustomer(AddCustomer.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -232,8 +260,8 @@ Session ID: de113f9f-0421-4723-8ba9-99e6b587b307
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 </pre></div></td>
-<td>0</td>
-<td>com.e2e.testcases.LoginTest@6fdbe764</td></tr>
+<td>10</td>
+<td>com.e2e.testcases.AddCustomer@21282ed8</td></tr>
 </table><p>
 </body>
 </html>
