@@ -142,7 +142,7 @@ public class Xls_Reader {
 		try{
 			if(rowNum <=0)
 				return "";
-			System.out.println("Sheet name in getcelldata is"+sheetName);
+			//System.out.println("Sheet name in getcelldata is"+sheetName);
 		int index = workbook.getSheetIndex(sheetName);
 
 		if(index==-1)
@@ -300,10 +300,10 @@ public class Xls_Reader {
 	    hlink_font.setColor(IndexedColors.BLUE.getIndex());
 	    hlink_style.setFont(hlink_font);
 	    //hlink_style.setWrapText(true);
-	    System.out.println(hlink_style);
+	    //System.out.println(hlink_style);
 	    XSSFHyperlink link = createHelper.createHyperlink(XSSFHyperlink.LINK_FILE);
 	    link.setAddress(url);
-	    System.out.println("link value is "+link);
+	    //System.out.println("link value is "+link);
 	    cell.setHyperlink(link);
 	    cell.setCellStyle(hlink_style);
 	      
@@ -522,7 +522,7 @@ public class Xls_Reader {
 		
 	}
 	
-	// to run this on stand alone
+	/*// to run this on stand alone
 	public static void main(String arg[]) throws IOException{
 		
 		
@@ -533,7 +533,7 @@ public class Xls_Reader {
 				for(int col=0 ;col< datatable.getColumnCount("TC5"); col++){
 					System.out.println(datatable.getCellData("TC5", col, 1));
 				}
-	}
+	}*/
 	
 	
 }

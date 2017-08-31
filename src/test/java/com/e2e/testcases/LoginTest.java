@@ -26,9 +26,10 @@ public class LoginTest extends TestBase {
 	// public static WebDriver driver;
 	TestUtil testutil = new TestUtil();
 	HomePage hp = new HomePage();
-
+	
 	@BeforeTest
 	public void isSkip() {
+		TestDescription = "This is the test for Customer Login";
 		ExecutionStartTime = testutil.getExecutionStartTime();
 		// final long start = System.currentTimeMillis();
 		System.out.println("Start value is --");
@@ -37,6 +38,7 @@ public class LoginTest extends TestBase {
 		TestDataSheetName = testutil.getDataSheetName(CurrentTestName);
 		System.out.println("test sheet is---" + TestDataSheetName);
 		if (!TestUtil.isTestCaseExecutable(CurrentTestName)) {
+			test = rep.startTest(CurrentTestName.toUpperCase(), " - "+TestDescription);
 			throw new SkipException("Skipping Test case as runmode is set to No");
 		}
 	}
@@ -45,6 +47,7 @@ public class LoginTest extends TestBase {
 	public void logintest(Hashtable<String, String> testdata, Method method) throws IOException, InterruptedException {
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
 		Iteration = testdata.get("Iteration");
+		CurrentTestName = CurrentTestName+" - "+ Iteration;
 		System.out.println("Iteration is" + Iteration);
 		//CurrentIteration = Integer.parseInt(Iteration);
 		//System.out.println("CurrentIteration is  "+CurrentIteration);
@@ -111,12 +114,12 @@ public class LoginTest extends TestBase {
 	@AfterTest
 	public void closebrowser() {
 		System.out.println("I m in After Test");
-			try {
-				testutil.UpdateExecutionResult(CurrentTestName);
+			/*try {
+				testutil.UpdateExecutionResult(CurrentTestName,"Passed");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 	
 }

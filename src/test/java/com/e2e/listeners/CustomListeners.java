@@ -66,49 +66,56 @@ public class CustomListeners extends TestBase implements ITestListener,ISuiteLis
 		Reporter.log("<a target=\"_blank\" href="+TestUtil.screenshotName+"><img src="+TestUtil.screenshotName+" height=200 width=200></img></a>");
 		rep.endTest(test);
 		rep.flush();
-		/*try {
-			testutil.UpdateExecutionResult(CurrentTestName);
+		try {
+			testutil.UpdateExecutionResult(CurrentTestName,"Failed");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public void onTestSkipped(ITestResult arg0) {
-		
+		System.setProperty("org.uncommons.reportng.escape-output","false");
 		//test.log(LogStatus.SKIP, "Skipped");
-		test.log(LogStatus.SKIP, CurrentTestName.toUpperCase()+" Skipped the test as the Run mode is NO");
-		rep.endTest(test);
-		rep.flush();
 		System.out.println("I am in Skiped Test");
-		/*try {
-			testutil.ExecutionResult(CurrentTestName);
+		try {
+			//System.out.println("Current Test Case Name in try is "+CurrentTestName);
+			testutil.UpdateExecutionResult(CurrentTestName,"Skipped");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
+		//System.out.println("I am in Skiped Test2");
+		System.out.println("Current Test Case Name in Skiped is "+CurrentTestName);
+		test.log(LogStatus.SKIP, CurrentTestName.toUpperCase()+" Skipped the test as the Run mode is NO");
+		System.out.println("I am in Skiped Test3");
+		rep.endTest(test);
+		rep.flush();
+		
 	}
 
 
 	public void onTestStart(ITestResult arg0) {
-
-		test = rep.startTest(arg0.getName().toUpperCase());
-		
+		//int iteration = DefaultIteration + CurrentIteration;
+		//System.out.println();
+		//System.out.println(iteration);
+		test = rep.startTest(CurrentTestName.toUpperCase(),TestDescription);
+		//System.out.println("I m in Test Start");
 	}
 
 	public void onTestSuccess(ITestResult arg0) {
 
-
+		System.setProperty("org.uncommons.reportng.escape-output","false");
 		test.log(LogStatus.PASS, CurrentTestName.toUpperCase()+" PASS");
 		rep.endTest(test);
 		rep.flush();
 		System.out.println("I am in success Test");
-		/*(try {
-			testutil.ExecutionResult(CurrentTestName);
+		try {
+			testutil.UpdateExecutionResult(CurrentTestName,"Passed");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public void onFinish(ISuite arg0) {
@@ -138,6 +145,7 @@ public class CustomListeners extends TestBase implements ITestListener,ISuiteLis
 
 	public void onStart(ISuite arg0) {
 		// TODO Auto-generated method stub
-		
+		//test = rep.startTest(arg0.getName().toUpperCase());
+		//System.out.println("I m in Test Start");
 	}
 }

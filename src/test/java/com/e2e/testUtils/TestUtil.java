@@ -88,11 +88,11 @@ public class TestUtil extends TestBase {
 						System.out.println("Web is yes");
 						return true;
 					}else if(excel.getCellData("test_suite", "TestingType", rowNum).equalsIgnoreCase("Mobile") && (Config.getProperty("Android").equalsIgnoreCase("Yes"))){
-						System.out.println("Web is yes");
+						System.out.println("Android is yes");
 						return true;
 						
 					}else if(excel.getCellData("test_suite", "TestingType", rowNum).equalsIgnoreCase("Database") && (Config.getProperty("Database").equalsIgnoreCase("Yes"))){
-						System.out.println("Web is yes");
+						System.out.println("Database is yes");
 						return true;
 						
 					}else{
@@ -280,46 +280,54 @@ public class TestUtil extends TestBase {
 			
 		
 		
-	public void UpdateExecutionResult(String Tcase) throws MalformedURLException{
+	public void UpdateExecutionResult(String Tcase,String TestCaseResult) throws MalformedURLException{
 		String LastResult = "";
 		String FinalResult ="";
+		
 		for (int rowNum = 2; rowNum <= excel.getRowCount("test_suite"); rowNum++) {
-			String Hyperlink = System.getProperty("user.dir")+"\\target\\surefire-reports\\E2E POM Suite\\"+Tcase +" Test.html";
-			ExecutionEndTime = getExecutionEndTime();
-				//int ExecutionTime = Integer.parseInt(ExecutionEndTime)-Integer.parseInt(ExecutionStartTime);
-				//if(TestResult == "Passed" || TestResult == "Failed"){
-					LastResult = excel.getCellData("test_suite", "Result", rowNum);
-					if(!LastResult.isEmpty()){
-						TestResult = LastResult+";"+TestResult;
-						System.out.println("Test Result with last results "+TestResult);
-						excel.setCellData("test_suite", "Result", rowNum, "Iteration "+Iteration+" - "+TestResult);
-					}else{
-						System.out.println("Test Result without last results "+TestResult);
-						excel.setCellData("test_suite", "Result", rowNum, "Iteration "+Iteration+" - "+TestResult);
+			String Excel_testcasename = excel.getCellData("test_suite", "TCID", rowNum);
+			//System.out.println(Excel_testcasename);
+			//System.out.println("Test vcase from the scripts is "+Tcase);
+			if(Excel_testcasename.equalsIgnoreCase(Tcase)){
+				//System.out.println("Execution for Iteration-"+rowNum+"is "+Tcase);
+				String Hyperlink = System.getProperty("user.dir")+"\\target\\surefire-reports\\E2E POM Suite\\"+Tcase +" Test.html";
+				ExecutionEndTime = getExecutionEndTime();
+					//int ExecutionTime = Integer.parseInt(ExecutionEndTime)-Integer.parseInt(ExecutionStartTime);
+					//if(TestResult == "Passed" || TestResult == "Failed"){
+						LastResult = excel.getCellData("test_suite", "Result", rowNum);
+						if(!LastResult.isEmpty()){
+							TestResult = LastResult+";"+TestCaseResult;
+							System.out.println("Test Result with last results "+TestResult);
+							excel.setCellData("test_suite", "Result", rowNum, "Iteration "+Iteration+" - "+TestResult);
+						}else{
+							System.out.println("Test Result without last results "+TestResult);
+							TestResult = TestCaseResult;
+							excel.setCellData("test_suite", "Result", rowNum, "Iteration "+Iteration+" - "+TestResult);
+						}
+						
+						if(TestResult.contains("Failed")){
+							FinalResult = "Failed";
+						}else if(TestResult.contains("Passed")){
+							FinalResult = "Passed";
+						}else{
+							FinalResult = "Skipped";
+						}
+						//else if(TestResult.("Passed") )
+						excel.setCellData("test_suite", "ExecutionStartTime", rowNum, ExecutionStartTime);
+						System.out.println("Execution End time is"+ExecutionEndTime);
+						excel.setCellData("test_suite", "ExecutionEndTime", rowNum, ExecutionEndTime);
+						excel.setCellData("test_suite", "Result", rowNum, FinalResult);
+						//excel.setCellData("test_suite", "Result Link", rowNum, Hyperlink);
+						//excel.setCellData("test_suite", "ReportLink", rowNum, "Hello", Hyperlink);
+						//URL url = new URL(Hyperlink);
+						//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, url);
+						//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, Hyperlink, Hyperlink);
+						//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, Hyperlink, url);
+						
+						System.out.println("Test Result is updated successfuly for "+ Tcase);
+						break;
 					}
-					
-					if(TestResult.contains("Failed")){
-						FinalResult = "Failed";
-					}else if(TestResult.contains("Passed")){
-						FinalResult = "Passed";
-					}else{
-						FinalResult = "Skipped";
-					}
-					//else if(TestResult.("Passed") )
-					excel.setCellData("test_suite", "ExecutionStartTime", rowNum, ExecutionStartTime);
-					System.out.println("Execution End time is"+ExecutionEndTime);
-					excel.setCellData("test_suite", "ExecutionEndTime", rowNum, ExecutionEndTime);
-					excel.setCellData("test_suite", "Result", rowNum, FinalResult);
-					//excel.setCellData("test_suite", "Result Link", rowNum, Hyperlink);
-					//excel.setCellData("test_suite", "ReportLink", rowNum, "Hello", Hyperlink);
-					//URL url = new URL(Hyperlink);
-					//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, url);
-					//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, Hyperlink, Hyperlink);
-					//UpdateExcel.setCellData("test_suite", "ReportLink", rowNum, Hyperlink, url);
-					
-					System.out.println("Test Result is updated successfuly for "+ Tcase);
-					break;
-					}
+			}
 				//}
 			}
 		
@@ -368,7 +376,7 @@ public class TestUtil extends TestBase {
 			return ExecutionEndTime;
 		}
 		
-		public static String getExecutionStartTime(){
+		public String getExecutionStartTime(){
 			Calendar cal = Calendar.getInstance();
 	        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
 	        System.out.println("ExecutionStartTime---"+ sdf2.format(cal.getTime()) );
@@ -376,7 +384,7 @@ public class TestUtil extends TestBase {
 			return ExecutionStartTime;
 		}
 		
-		public static String getDataSheetName(String tcid){
+		public String getDataSheetName(String tcid){
 			String TestDataSheet = null;
 			for (int rowNum = 2; rowNum <= excel.getRowCount("test_suite"); rowNum++) {
 				if (excel.getCellData("test_suite", "TCID", rowNum).equals(tcid)) {

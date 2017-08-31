@@ -8,37 +8,46 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.e2e.core.*;
+import com.e2e.core.TestBase;
 import com.e2e.pageoperations.HomePage;
 import com.e2e.pageoperations.ManageHomePage;
 import com.e2e.testUtils.*;
+import com.relevantcodes.extentreports.LogStatus;
+
+
+
+
 
 //import test_utils.TestUtil;
 
-public class AddCustomer extends TestBase {
+public class AddCustomer extends TestBase{
+	
 	TestUtil testutil = new TestUtil();
 	HomePage hp = new HomePage();
 	ManageHomePage MP = new ManageHomePage();
 	
 	@BeforeTest
 	public void isSkip(){
+		TestDescription = "This is the test for Add Customer";
 		ExecutionStartTime = testutil.getExecutionStartTime();
 		// final long start = System.currentTimeMillis();
 		System.out.println("Start value is --");
-		String TestName = this.getClass().getName();
-		CurrentTestName = TestName.substring(TestName.lastIndexOf('.') + 1);
+		//String TestName = this.getClass().getName();
+		//CurrentTestName = TestName.substring(TestName.lastIndexOf('.') + 1);
+		CurrentTestName = getTestCaseName();
 		TestDataSheetName = testutil.getDataSheetName(CurrentTestName);
 		System.out.println("test sheet is---" + TestDataSheetName);
 		if (!TestUtil.isTestCaseExecutable(CurrentTestName)) {
+			test = rep.startTest(CurrentTestName.toUpperCase(), " - "+TestDescription);
 			throw new SkipException("Skipping Test case as runmode is set to No");
 		}
 	}
@@ -46,7 +55,10 @@ public class AddCustomer extends TestBase {
 	
 	@Test(dataProvider="getData")
 	public void addNewCustomer(Hashtable<String, String> testdata,Method method) throws InterruptedException, IOException{
-		
+		System.setProperty("org.uncommons.reportng.escape-output", "false");
+		Iteration = testdata.get("Iteration");
+		//CurrentTestName = getTestCaseName()+" - "+ Iteration;
+		//CurrentTestName = CurrentTestName+" - "+ Iteration;
 		String runmode = testdata.get("RunMode");
 		if(runmode.trim().equals("Y")){
 			if(driver==null){
@@ -100,6 +112,10 @@ public class AddCustomer extends TestBase {
 		alert.accept();
 		Thread.sleep(3000);
 		app_logs.debug("Execution finished for Add customer Test Case");
+		TestUtil.CaptureScreenshot();
+		test.log(LogStatus.PASS, test.addScreenCapture(TestUtil.screenshotName));
+		test.log(LogStatus.PASS, "Add Customer Registertaion Page is displayed successfuly");
+		Reporter.log("Execution finished for Add Customer Test Case");
 		tearDown();
 		//Assert.fail("Add Customer is not successful");
 	}
@@ -110,6 +126,11 @@ public class AddCustomer extends TestBase {
 		return TestUtil.getTestData(CurrentTestName);
 	}
 	
+	public String getTestCaseName(){
+		String TestName = this.getClass().getName();
+		TestName = TestName.substring(TestName.lastIndexOf('.') + 1);
+		return TestName;
+	}
 	public void tearDown(){
 		System.out.println("I am in tearDown Test");
 		if (Config.getProperty("browser").equals("") && (driver!=null)) {
@@ -129,13 +150,9 @@ public class AddCustomer extends TestBase {
 	@AfterTest
 	public void closebrowser(){
 		System.out.println("I m in After Test");
-		try {
-			testutil.UpdateExecutionResult(CurrentTestName);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
+	
 	
 	
 }

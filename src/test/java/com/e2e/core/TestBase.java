@@ -61,7 +61,8 @@ public class TestBase {
 	public static String ExecutionEndTime;
 	public static String Iteration;
 	public static int CurrentIteration;
-	
+	public static String TestDescription;
+	public static int DefaultIteration = 1;
 	@BeforeSuite
 	public void setUp() throws MalformedURLException{
 		TestUtil testutil = new TestUtil();
@@ -224,6 +225,7 @@ public class TestBase {
 	public void QuitDriver() throws AddressException, MessagingException{
 		
 		if(!(driver==null)){
+			driver.close();
 			driver.quit();
 			System.out.println("Closing Browser from Suite");
 		}else if(!(Androiddriver==null)){
